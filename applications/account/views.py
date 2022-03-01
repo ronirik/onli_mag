@@ -44,10 +44,10 @@ class ProfileView(APIView):
         serialiser = ProfileSerializer(profile, many=False)
         return Response(serialiser.data, status=status.HTTP_200_OK)
 
+
 class ProfileUpdateView(generics.UpdateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [IsAuthenticated, IsProfileAuthor, ]
 
 # TODO: add forgot password logic
-# TODO: add product logic
